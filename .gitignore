@@ -1,3 +1,11 @@
+# intellij / goland files
+*.iml
+modules.xml
+.idea/
+
+# binary
+push-sounds
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
