@@ -14,13 +14,17 @@ import (
 	"github.com/faiface/beep/wav"
 )
 
+var (
+	NewFromFile = newFromFile
+)
+
 type beepSound struct {
 	Path   string
 	stream beep.StreamSeekCloser
 	format beep.Format
 }
 
-func NewFromFile(soundFile string) (Sound, error) {
+func newFromFile(soundFile string) (Sound, error) {
 	audioFile, err := os.Open(soundFile)
 	if err != nil {
 		return nil, fmt.Errorf("unable to open audiofile: %s", err.Error())

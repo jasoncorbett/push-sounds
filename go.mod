@@ -4,5 +4,6 @@ go 1.16
 
 require (
 	github.com/faiface/beep v1.1.0 // indirect
+	github.com/golang/mock v1.6.0 // indirect
 	github.com/urfave/cli/v2 v2.3.0 // indirect
 )

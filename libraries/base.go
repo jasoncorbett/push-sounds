@@ -9,6 +9,10 @@ import (
 	"time"
 )
 
+var (
+	NewSoundLibrary = newSoundLibrary
+)
+
 type SoundLibrary interface {
 	ListLibraries() ([]string, error)
 	GetRandomFile(from []string) (string, error)
@@ -19,7 +23,7 @@ type directoryBasedSoundLibrary struct {
 	basePath string
 }
 
-func NewSoundLibrary(basePath string) (SoundLibrary, error) {
+func newSoundLibrary(basePath string) (SoundLibrary, error) {
 	stat, err := os.Stat(basePath)
 	if err != nil && os.IsNotExist(err) {
 		return &directoryBasedSoundLibrary{}, fmt.Errorf("library base %s does not exist", basePath)
