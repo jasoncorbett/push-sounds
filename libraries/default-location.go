@@ -5,8 +5,12 @@ import (
 	"path/filepath"
 )
 
+var (
+	GetUserConfigBase = os.UserConfigDir
+)
+
 func GetLocationDefault() string {
-	configDir, err := os.UserConfigDir()
+	configDir, err := GetUserConfigBase()
 	if err != nil {
 		configDir = "."
 	}
