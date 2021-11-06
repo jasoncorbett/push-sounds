@@ -1,11 +1,13 @@
 package sound
 
+import "math"
+
 const (
 	OggVorbisFile AudioFileType = iota
 	WavFile
 	Mp3File
 	FlacFile
-	UnknownAudioFile
+	UnknownAudioFile AudioFileType = math.MaxInt
 )
 
 func (t AudioFileType) Name() string {
