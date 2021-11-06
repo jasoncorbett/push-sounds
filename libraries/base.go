@@ -11,6 +11,7 @@ import (
 
 var (
 	NewSoundLibrary = newSoundLibrary
+	seeded          = false
 )
 
 type SoundLibrary interface {
@@ -64,7 +65,10 @@ func (l *directoryBasedSoundLibrary) GetRandomFile(from []string) (string, error
 	if len(files) == 0 {
 		return "", fmt.Errorf("no files available in %v", from)
 	}
-	rand.Seed(time.Now().Unix())
+	if !seeded {
+		rand.Seed(time.Now().Unix())
+		seeded = true
+	}
 	randIndex := rand.Intn(len(files))
 	return files[randIndex], nil
 }
